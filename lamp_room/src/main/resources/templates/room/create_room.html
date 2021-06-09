@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="utf-8" />
+<title>Создание новой комнаты</title>
+</head>
+<body>
+    <div align="center">
+        <h1>Новая комната</h1>
+        <br />
+        <form action="#" th:action="@{/room}" th:object="${room}" th:method="POST">
+            <table border="0" cellpadding="10">
+                <tr>
+                    <td>Имя комнаты:</td>
+                    <td><input type="text" th:field="*{name}" /></td>
+                </tr>
+                
+                <tr>
+                    <td>Страна</td>
+                    <td>
+                    	<select th:field = "*{country.code}">
+							   <option th:each="count: ${countries}" 
+							   		   th:value="${count.code}" 
+							   		   th:text="${count.name}">
+							   </option>
+						</select>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Включить свет:</td>
+                    <td><input type="checkbox"  th:field="${room.ligthOn}" /></td>
+                </tr>                            
+                <tr>
+                    <td colspan="2"><button type="submit">Создать</button> </td>
+                </tr>
+            </table>
+        </form>
+    </div>
+</body>
+</html>

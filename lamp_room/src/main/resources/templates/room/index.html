@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="utf-8"/>
+<title>Все комнаты</title>
+</head>
+<body>
+<div align="center">
+    <h1>International rooms</h1>
+    <a href="room/new">Создать</a>
+    <br/><br/>
+    <table border="1" cellpadding="10">
+        <thead>
+            <tr>
+                <th>Название комнаты</th>
+                <th>Страна</th>       
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="room : ${rooms}">
+                <td th:text="${room.name}">room name</td>
+                <td th:text="${room.country.name}">room country</td>
+                 <td>
+                    <a th:href="@{'/room/' + ${room.id}}">Войти</a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>   
+</body>
+</html>
