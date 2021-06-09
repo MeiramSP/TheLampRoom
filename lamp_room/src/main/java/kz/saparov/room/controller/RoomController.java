@@ -42,7 +42,7 @@ public class RoomController {
 	}
 	
 	@GetMapping("{id}")
-    public String findRoom(@PathVariable Long id, Model model, HttpServletRequest request) {
+   	public String findRoom(@PathVariable Long id, Model model, HttpServletRequest request) {
 		
 		Country clientCountry = countryService.getClientCountryByIp(
 				requestService.getClientIp(request));
@@ -54,14 +54,14 @@ public class RoomController {
 			return "room/room";
 		}
 		return "room/error";
-    }
+    	}
 	
 	@GetMapping("new")
-    public String createRoom(Model model) {
+    	public String createRoom(Model model) {
 		model.addAttribute("room", new Room());
 		model.addAttribute("countries", countryService.showAll());
 		return "room/create_room";
-    }
+    	}
 	
 	@PostMapping() 
 	public String createRoom(@ModelAttribute Room room) {
