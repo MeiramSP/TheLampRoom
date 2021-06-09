@@ -16,11 +16,9 @@ public class SocketController {
 	private RoomService roomService;
 	
 	@MessageMapping("/getlight/{id}")
-    @SendTo("/client/lamp/{id}")
-    public Ligth greeting(Ligth ligth, @DestinationVariable Long id) {
+    	@SendTo("/client/lamp/{id}")
+    	public Ligth greeting(Ligth ligth, @DestinationVariable Long id) {
 		roomService.changeRoomLamp(id, ligth.isCondition());
-        return ligth;
-    }
-	
-	
+       	 	return ligth;
+    	}
 }
