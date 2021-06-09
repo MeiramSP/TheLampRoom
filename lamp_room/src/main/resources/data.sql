@@ -1,4 +1,4 @@
-delete from rooms;
+--delete from rooms;
 delete from countries;
 
 insert into countries(country_name, country_code) 
